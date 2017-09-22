@@ -44,7 +44,6 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) cons
 	auto ScreenLocation = FVector2D(ViewportSizeX * CrosshairXLocation, ViewportSizeY * CrosshairYLocation);
 	if (GetLookDirection(ScreenLocation, LookDirection)) {
 		if (GetLookVectorHitLocation(LookDirection, OutHitLocation)) {
-			//UE_LOG(LogTemp, Warning, TEXT("Hit location: %s"), *OutHitLocation.ToString());
 			return true;
 		}
 	}

@@ -33,7 +33,6 @@ private:
 	float LineTraceRange = 1000000;
 
 public:
-	
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 	
