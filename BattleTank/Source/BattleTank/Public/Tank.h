@@ -2,10 +2,11 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
+
+class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -17,7 +18,7 @@ private:
 	ATank();
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 100000.0; // 1000 m/s
+	float LaunchSpeed = 4000; // 1000 m/s
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,7 +30,9 @@ protected:
 public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = Firing)
+	void Fire();
 
 };

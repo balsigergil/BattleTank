@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-#include "DrawDebugHelpers.h"
+#include "Tank.h"
 
 void ATankPlayerController::BeginPlay() {
 	Super::BeginPlay();
@@ -56,14 +56,6 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	FHitResult HitResult;
 	auto StartLocation = PlayerCameraManager->GetCameraLocation();
 	auto EndLocation = StartLocation + LookDirection * LineTraceRange;
-
-	/*DrawDebugLine(
-		GetWorld(),
-		StartLocation,
-		EndLocation,
-		FColor::Red,
-		true
-	);*/
 
 	if (GetWorld()->LineTraceSingleByChannel(
 		HitResult,

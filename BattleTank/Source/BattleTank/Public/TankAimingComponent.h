@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "TankBarrel.h"
 #include "TankAimingComponent.generated.h"
+
+class UTankBarrel;
+class UTankTurret;
 
 // Holds barrel's properties and elevate method
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -20,11 +22,13 @@ private:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetTurretReference(UTankTurret* TurretToSet);
+
+	UTankTurret* Turret = nullptr;
 	UTankBarrel* Barrel = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
-
-	//TODO Add SetTurretReference
 
 public:
 	void AimAt(FVector WorldSpaceAim, float LaunchSpeed);
