@@ -19,12 +19,6 @@ private:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
-
 	UTankTurret* Turret = nullptr;
 	UTankBarrel* Barrel = nullptr;
 
@@ -32,4 +26,10 @@ private:
 
 public:
 	void AimAt(FVector WorldSpaceAim, float LaunchSpeed);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetTurretReference(UTankTurret* TurretToSet);
 };
